@@ -19,3 +19,10 @@
     color: $lightGray;
   }
 }
+
+@media (max-width: 575px) {
+    .footer {
+      padding: 26px 20px;
+      gap: 20px;
+    }
+  }
