@@ -10,7 +10,7 @@ const Footer = () => {
           alt="logoFooter"
           className={styles.footerLogo}
         />
-        <a href="http://onebitcode.com" className={styles.footerLink}></a>
+        <a href="http://onebitcode.com" className={styles.footerLink}>ONEBITCODE.COM</a>
       </Container>
     </>
   );
