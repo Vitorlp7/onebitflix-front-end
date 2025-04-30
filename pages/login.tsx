@@ -89,7 +89,7 @@ const Login = () => {
             </FormGroup>
             <FormGroup>
               <Label for="password" className={styles.label}>
-                E-mail
+                Senha
               </Label>
               <Input
                 id="password"
