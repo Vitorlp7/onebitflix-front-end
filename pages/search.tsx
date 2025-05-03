@@ -4,22 +4,25 @@ import HeaderAuth from "../src/components/common/headerAuth";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import courseService, { CourseType } from "../src/services/courseService";
+import { Container } from "reactstrap";
+import SearchCard from "../src/components/searchCard";
+import Footer from "../src/components/common/footer";
 
 const Search = () => {
-    const router = useRouter()
-    const searchName: any = router.query.name
-    const [searchResult, setSearchResult] = useState<CourseType[]>([])
+  const router = useRouter();
+  const searchName: any = router.query.name;
+  const [searchResult, setSearchResult] = useState<CourseType[]>([]);
 
-    const searchCourses = async () => {
-        if(typeof searchName === "string"){
-            const res = await courseService.getSearch(searchName)
-            setSearchResult(res.data.courses)
-        }
+  const searchCourses = async () => {
+    if (typeof searchName === "string") {
+      const res = await courseService.getSearch(searchName);
+      setSearchResult(res.data.courses);
     }
+  };
 
-    useEffect(() => {
-        searchCourses()
-    }, [searchName])
+  useEffect(() => {
+    searchCourses();
+  }, [searchName]);
 
   return (
     <>
@@ -27,16 +30,27 @@ const Search = () => {
         <title>{`Onebitflix - ${searchName}`}</title>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
       </Head>
-      <main>
-        <HeaderAuth />
-        {searchResult?.map((course) => (
-            <div key={course.id}>
-                <p>{course.name}</p>
-            </div>
-        ))}
+      <main className={styles.main}>
+        <div className={styles.headerFooterBg}>
+          <HeaderAuth />
+        </div>
+        {searchResult.length >= 1 ? (
+          <div className={styles.searchResult}>
+            <Container className="d-flex flex-wrap justify-content-center gap-5 py-4">
+            {searchResult?.map((course) => (
+              <SearchCard course={course} key={course.id} />
+            ))}
+          </Container>
+          </div>
+        ) : (
+          <p className={styles.noSearchResult}>Nenhum resultado encontrado!</p>
+        )}
+        <div className={styles.headerFooterBg}>
+          <Footer />
+        </div>
       </main>
     </>
   );
 };
 
-export default Search
+export default Search;
