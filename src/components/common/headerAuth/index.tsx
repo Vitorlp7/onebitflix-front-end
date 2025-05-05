@@ -23,7 +23,7 @@ const HeaderAuth = function () {
 
   const handleSearchClick = () => {
     router.push(`search?name=${searchName}`)
-    router.push(``)
+    setSearchName("")
   }
 
   useEffect(() => {

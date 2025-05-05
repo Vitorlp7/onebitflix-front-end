@@ -95,6 +95,7 @@ const PasswordForm = () => {
               id="currentPassword"
               placeholder="******"
               required
+              minLength={6}
               maxLength={12}
               value={currentPassword}
               onChange={(event) => {
@@ -115,6 +116,7 @@ const PasswordForm = () => {
               id="newPassword"
               placeholder="******"
               required
+              minLength={6}
               value={newPassword}
               onChange={(event) => {
                 setNewPassword(event.currentTarget.value);
@@ -132,6 +134,7 @@ const PasswordForm = () => {
               id="confirmNewPassword"
               placeholder="******"
               required
+              minLength={6}
               value={confirmPassword}
               onChange={(event) => {
                 setConfirmPassword(event.currentTarget.value);
