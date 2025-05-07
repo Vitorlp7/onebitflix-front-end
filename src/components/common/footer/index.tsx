@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <Container className={styles.footer}>
         <img
-          src="./logoOnebitcode.svg"
+          src="/logoOnebitcode.svg"
           alt="logoFooter"
           className={styles.footerLogo}
         />

@@ -79,3 +79,20 @@
         width: 95%;
     }
 }
+
+@media(max-width: 400px){
+    .courseInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .courseTitle{
+        font-size: 22px;
+    }
+
+    .courseDescription{
+        font-size: 14px;
+    }
+}
